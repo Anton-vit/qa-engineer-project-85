@@ -2,31 +2,181 @@
 - summary: |
     Проверка регистрации пользователя с помощью Git
   requirement: |
-    Тестируемое требование. Например: При верном вводе логине и пароля пользователь должен войти в систему
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
   prerequisites: |
-    Это условия, которые необходимы для проведения тест кейса. Они должны быть выполнены еще до запуска тест кейса.
-    Например: открыта страница логина
+    Открыта страница регистрации
   test-data: |
-    Тестовые данные
-    Логин = ilona Пароль = password
+    - no data
   steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку "Войти"
+    - Нажать Sign up with GitHub
+    - В открывшемся окне ввести логин и пароль от GitHub
+    - Нажать кнопку "Войти"
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Пользователь должен выполнить вход в Git, зарегестрироваться и перейти на главную страницу сайта
 
 - summary: |
-    Проверка входа пользователя с несуществующими логином и паролем
+    Проверка регистрации пользователя с несуществующим аккаунтом Git
   requirement: |
-    При неправильном логине или пароле пользователь должен получить сообщение об ошибке
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница регистрации
+  test-data: |
+    Логин = test@test.ru 
+    Пароль = 123456
+  steps:
+    - Нажать Sign up with GitHub
+    - В открывшемся окне ввести логин и пароль
+    - Нажать кнопку "Войти"
+  expected-result: |
+    Пользователь получит сообщения о некорректно введённом логине или пароле
+
+- summary: |
+    Проверка регистрации пользователя с помощью Git
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница регистрации
+  test-data: |
+    - no data
+  steps:
+    - Нажать Sign up with Discord
+    - В открывшемся окне ввести логин и пароль от Discord
+    - Пройти hCaptcha
+    - Нажать кнопку "Войти"
+  expected-result: |
+    Пользователь должен выполнить вход в Discord, зарегестрироваться и перейти на главную страницу сайта
+
+- summary: |
+    Проверка регистрации пользователя с несуществующим аккаунтом Discord
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница регистрации
+  test-data: |
+    Логин = test@test.ru 
+    Пароль = 123456
+  steps:
+    - Нажать Sign up with Discord
+    - В открывшемся окне ввести логин и пароль
+    - Нажать кнопку "Войти"
+  expected-result: |
+    Пользователь получит сообщения о некорректно введённом логине или пароле
+
+- summary: |
+    Проверка регистрации пользователя с помощью Email
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    No data
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+    - Повторить пароль
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Пользователь должен пройти регистрацию и попасть на главную страницу
+
+- summary: |
+    Проверка регистрации пользователя с повторяющимся Nickanme
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Nickname = Anton-vitality
+  steps:
+    - Ввести Nickname
+  expected-result: |
+    Пользователь получит сообщение Nickname is already take
+
+- summary: |
+    Проверка регистрации пользователя с повторяющимся Email
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Email = mega.test11@mail.ru
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+  expected-result: |
+    Пользователь получит сообщение Email is already taken
+
+- summary: |
+    Проверка регистрации пользователя с не совпадающими паролями
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    password = 12345!
+    Password Confirmation = 123456!    
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+    - Повторить пароль
+  expected-result: |
+    Пользователь получит сообщение Passwords must match
+
+- summary: |
+    Проверка регистрации пользователя с Nickname на кириллице
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Nickname = АлексейИван  
+  steps:
+    - Ввести Nickname
+  expected-result: |
+    Пользователь получит сообщение Must consist of Latin letters, numbers and underscores. Only begin with latin letter
+
+- summary: |
+    Проверка регистрации пользователя с Nickname менее 3 символов
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Nickname = Be 
+  steps:
+    - Ввести Nickname
+  expected-result: |
+    Пользователь получит сообщение Should be from 3 to 16 characters
+
+- summary: |
+    Проверка регистрации пользователя с Nickname более 16 символов
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Nickname = Be345678901234567 
+  steps:
+    - Ввести Nickname
+  expected-result: |
+    Пользователь получит сообщение Should be from 3 to 16 characters
+
+
+
+
+- summary: |
+    Проверка регистрации пользователя с помощью Email
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
   prerequisites:
     Открыта страница логина
   test-data: |
-    Логин = Логин = hexlet Пароль = badpass
+    - no data
   steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку "Войти"
+    - Нажать Sign up with Discord
+    - В открывшемся окне ввести логин и пароль от Discord
+    - Пройти hCaptcha
+    - Нажать кнопку "Войти"
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Пользователь должен выполнить вход в Discord, зарегестрироваться и перейти на главную страницу сайта
