@@ -75,7 +75,7 @@
     - Ввести Email
     - Ввести пароль
     - Повторить пароль
-    - Нажимаем кнопку «Submit»
+    - Нажать кнопку «Submit»
   expected-result: |
     Пользователь должен пройти регистрацию и попасть на главную страницу
 
@@ -92,36 +92,18 @@
   expected-result: |
     Пользователь получит сообщение Nickname is already take
 
-- summary: |
-    Проверка регистрации пользователя с повторяющимся Email
+    - summary: |
+    Проверка регистрации пользователя с Nickanme начинающимся с цифры
   requirement: |
     На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
   prerequisites: |
     Открыта страница регистрации
   test-data: |
-    Email = mega.test11@mail.ru
+    Nickname = 2Anton-vitality
   steps:
     - Ввести Nickname
-    - Ввести Email
   expected-result: |
-    Пользователь получит сообщение Email is already taken
-
-- summary: |
-    Проверка регистрации пользователя с не совпадающими паролями
-  requirement: |
-    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
-  prerequisites: |
-    Открыта страница регистрации
-  test-data: |
-    password = 12345!
-    Password Confirmation = 123456!    
-  steps:
-    - Ввести Nickname
-    - Ввести Email
-    - Ввести пароль
-    - Повторить пароль
-  expected-result: |
-    Пользователь получит сообщение Passwords must match
+    Пользователь получит сообщение Must consist of Latin letters, numbers and underscores. Only begin with latin letter
 
 - summary: |
     Проверка регистрации пользователя с Nickname на кириллице
@@ -162,21 +144,220 @@
   expected-result: |
     Пользователь получит сообщение Should be from 3 to 16 characters
 
-
-
-
 - summary: |
-    Проверка регистрации пользователя с помощью Email
+    Проверка регистрации пользователя с уже зарегистрированным Email
   requirement: |
     На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Email = mega.test11@mail.ru
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+  expected-result: |
+    Пользователь получит сообщение Email is already taken
+
+- summary: |
+    Проверка регистрации пользователя с не валидным Email
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    Email = mega.test11mail.ru
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+  expected-result: |
+    Пользователь получит сообщение Invalid email
+
+- summary: |
+    Проверка регистрации пользователя с не совпадающими паролями
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    password = 12345!
+    Password Confirmation = 123456!    
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+    - Повторить пароль
+  expected-result: |
+    Пользователь получит сообщение Passwords must match
+
+- summary: |
+    Проверка регистрации пользователя с паролем без спецсимвола 
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    password = 123456
+    Password Confirmation = 123456  
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+    - Повторить пароль
+  expected-result: |
+    Пользователь получит сообщение Should contain at least one special character
+
+- summary: |
+    Проверка регистрации пользователя с паролем длинной менее 6 символов
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    password = 1234! 
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+  expected-result: |
+    Пользователь получит сообщение Should be from 6 to 16 characters
+
+- summary: |
+    Проверка регистрации пользователя с паролем длинной более 16 символов
+  requirement: |
+    На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
+  prerequisites: |
+    Открыта страница регистрации
+  test-data: |
+    password = 1234567890123456! 
+  steps:
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести пароль
+  expected-result: |
+    Пользователь получит сообщение Should be from 6 to 16 characters
+
+- summary: |
+    Проверка авторизации пользователя с помощью GitHub  
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
   prerequisites:
-    Открыта страница логина
+    Открыта страница авторизации
+  test-data: |
+    - no data
+  steps:
+    - Нажать Sign up with Github
+  expected-result: |
+    Пользователь должен авторизироваться, перейти на главную страницу сайта и получить сообщение Successfully authenticated
+
+- summary: |
+    Проверка авторизации пользователя с помощью Discord 
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
   test-data: |
     - no data
   steps:
     - Нажать Sign up with Discord
-    - В открывшемся окне ввести логин и пароль от Discord
-    - Пройти hCaptcha
-    - Нажать кнопку "Войти"
   expected-result: |
-    Пользователь должен выполнить вход в Discord, зарегестрироваться и перейти на главную страницу сайта
+    Пользователь должен авторизироваться, перейти на главную страницу сайта и получить сообщение Successfully authenticated
+
+- summary: |
+    Проверка авторизации пользователя с помощью Email 
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    - no data
+  steps:
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+  expected-result: |
+    Пользователь должен авторизироваться и перейти на главную страницу сайта
+
+- summary: |
+    Проверка авторизации пользователя с не заполненными Email и Password
+  requirement: |
+    На сайте должна быть доступна авторзация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    - no data
+  steps:
+    - Оставить поле Email пустым
+    - Оставить поле Password пустым
+    - Нажать Submit
+  expected-result: |
+    Пользователь получит сообщения Email required, Password required
+
+- summary: |
+    Проверка авторизации пользователя с не валидным email
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    Email = megatest11mail.ru
+    Password = 32145687!
+  steps:
+    - Ввести email 
+    - Ввести пароль
+    - Нажать Submit
+  expected-result: |
+    Пользователь получит сообщение EMAIL_NOT_FOUND
+
+- summary: |
+    Проверка авторизации пользователя с не валидным паролем
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    Email = mega.test11mail.ru
+    Password = 32145687!
+  steps:
+    - Ввести email 
+    - Ввести пароль
+    - Нажать Submit
+  expected-result: |
+    Пользователь получит сообщение INVALID_PASSWORD
+
+- summary: |
+    Проверка восстановления пароля
+  requirement: |
+    На сайте должна быть доступна авторизация с помощью GitHub, Discord, Email
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    No data
+  steps:
+    - Нажать Forgot your password?
+    - В открывшемся окне ввести email
+    - Нажать Submit
+    - Открыть почту
+    - Перейти по полученной ссылке
+    - В открывшемся окне ввести новый пароль
+    - Нажать Save 
+  expected-result: |
+    Пользователь получит сообщение You can now sign in with your new password
+
+- summary: |
+    Проверка создания игры со случайнам противником
+  requirement: |
+    Пользователь может играть со случайным противником
+  prerequisites:
+    Открыта страница авторизации
+  test-data: |
+    No data
+  steps:
+    - Нажать Forgot your password?
+    - В открывшемся окне ввести email
+    - Нажать Submit
+    - Открыть почту
+    - Перейти по полученной ссылке
+    - В открывшемся окне ввести новый пароль
+    - Нажать Save 
+  expected-result: |
+    Пользователь получит сообщение You can now sign in with your new password
