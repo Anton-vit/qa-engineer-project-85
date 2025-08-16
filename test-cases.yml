@@ -756,3 +756,55 @@
     - В Mozilla открыть ссылку на сайт
   expected-result: |
     Откроется главная страница сайта
+
+- summary: |
+    Проверка просмотра сайта с мобильного устройства Android
+  requirement: |
+    Сайт должен иметь мобильную версию
+  prerequisites:
+    ""
+  test-data: |
+    Ссылка на сайт https://codebattle.hexlet.io/
+  steps:
+    - Открыть ссылку на сайт с мобильного устройста Android
+  expected-result: |
+    Откроется главная страница сайта
+
+- summary: |
+    Проверка просмотра сайта с мобильного устройства iOs
+  requirement: |
+    Сайт должен иметь мобильную версию
+  prerequisites:
+    ""
+  test-data: |
+    Ссылка на сайт https://codebattle.hexlet.io/
+  steps:
+    - Открыть ссылку на сайт с мобильного устройста iOs
+  expected-result: |
+    Откроется главная страница сайта
+
+- summary: |
+    Проверка верстки мобильной версии сайта на Android
+  requirement: |
+    Сайт должен иметь мобильную версию
+  prerequisites:
+    ""
+  test-data: |
+    Ссылка на сайт https://codebattle.hexlet.io/
+  steps:
+    - Открыть ссылку на сайт с мобильного устройста Android
+  expected-result: |
+    Откроется главная страница сайта
+
+- summary: |
+    Проверка верстки мобильной версии сайта на iOs
+  requirement: |
+    Сайт должен иметь мобильную версию
+  prerequisites:
+    ""
+  test-data: |
+    Ссылка на сайт https://codebattle.hexlet.io/
+  steps:
+    - Открыть ссылку на сайт с мобильного устройста iOS
+  expected-result: |
+    Откроется главная страница сайта
