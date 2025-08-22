@@ -210,6 +210,7 @@
 - summary: |
     Проверка верстки сайта на ПК
   status: fail 
+
 - summary: |
     Проверка просмотра сайта с мобильного устройства Android
   status: pass
@@ -220,7 +221,7 @@
 
 - summary: |
     Проверка верстки мобильной версии сайта на Android
-  status: pass
+  status: fail
 
 - summary: |
     Проверка верстки мобильной версии сайта на iOs
