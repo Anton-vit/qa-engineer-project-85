@@ -3,20 +3,20 @@
     Проверка открытия сайта на пк
   requirement: |
     Сайт нужно протестировать на совместимость с последними версиями браузеров
-  prerequisites: |
+  prerequisites:
     no prerequisities
   test-data: |
     ссылка на сайт https://codebattle.hexlet.io
   steps:
     - Открыть в браузере сайт
-  expected-result: |
+  expected-result:
     Откроется главная страница сайта
 
 - summary: |
     Проверка регистрации пользователя с помощью Git
   requirement: |
     На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
-  prerequisites: |
+  prerequisites:
     Открыта страница регистрации
   test-data: |
     no data
@@ -31,7 +31,7 @@
     Проверка регистрации пользователя с несуществующим аккаунтом Git
   requirement: |
     На сайте должна быть доступна регистрация с помощью GitHub, Discord, Email
-  prerequisites: |
+  prerequisites:
     Открыта страница регистрации
   test-data: |
     Логин = test@test.ru 
