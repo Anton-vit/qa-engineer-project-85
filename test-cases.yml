@@ -897,11 +897,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В Яндекс.Браузере открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка совместимости сайта с Google Chrome
@@ -910,11 +918,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В Google Chrome открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка совместимости сайта с Opera GX
@@ -923,11 +939,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В Opera GX открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка совместимости сайта с Microsoft Edge
@@ -936,11 +960,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В Microsoft Edge открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка совместимости сайта с Mozilla
@@ -949,11 +981,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В Mozilla открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка верстки сайта на ПК
@@ -962,11 +1002,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
     - В браузере открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Вёрстка в порядке
 
 - summary: |
     Проверка просмотра сайта с мобильного устройства Android
@@ -975,11 +1023,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
-    - Открыть ссылку на сайт с мобильного устройста Android
+    - В Microsoft Edge открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка просмотра сайта с мобильного устройства iOs
@@ -988,11 +1044,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
-    - Открыть ссылку на сайт с мобильного устройста iOs
+    - В Microsoft Edge открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Откроется станицы игры с ботом
 
 - summary: |
     Проверка верстки мобильной версии сайта на Android
@@ -1001,11 +1065,19 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
-    - Открыть ссылку на сайт с мобильного устройста Android
+    - В Microsoft Edge открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Верстка в порядке
 
 - summary: |
     Проверка верстки мобильной версии сайта на iOs
@@ -1014,8 +1086,16 @@
   prerequisites: |
     ""
   test-data: |
+    Login=User1
+    Password=Password!
     Ссылка на сайт https://codebattle.hexlet.io/
   steps:
-    - Открыть ссылку на сайт с мобильного устройста iOS
+    - В Microsoft Edge открыть ссылку на сайт
+    - В открывшемся окне в правом верхнем углу нажать Sign in
+    - Ввести Email
+    - Ввести пароль
+    - Нажать Submit
+    - Под именем пользователя в правом верхнем углу нажать Create Game
+    - Создать игру с ботом
   expected-result: |
-    Откроется главная страница сайта
+    Вёрстка в порядке
