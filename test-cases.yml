@@ -86,7 +86,7 @@
     Открыта страница регистрации
   test-data: |
     Логин = User1
-    Email =test@test.ru
+    Email = test@test.ru
     Пароль = 123456
   steps:
     - Ввести Nickname
